@@ -8,38 +8,48 @@ Modellizzare la struttura di un database per memorizzare tutti i dati riguardant
 - ogni Studente può iscriversi a più appelli di Esame;
 - per ogni appello d'Esame a cui lo Studente ha partecipato, è necessario memorizzare il voto ottenuto, anche se non sufficiente.
 
-UNIVERSITÀ
-
-id - SMALL - PRIMARY_KEY - NOTNULL - AUTO_INCREMENT - UNIQUE
-dipartimento - VARCHAR(200) - NOTNULL - UNIQUE
-anno_di_fondazione - YEAR - NOTNULL
-numero_corsi_di_Laurea - TINYINT - NULL
-
 DIPARTIMENTI 
 
-id - TINYINT - PRIMARY_KEY - NOTNULL - AUTO_INCREMENT - UNIQUE
-nome_dipartimento - VARCHAR (100) - NOTNULL - UNIQUE
+id_dipartimento - SMALL - PRIMARY_KEY - NOTNULL - AUTO_INCREMENT - UNIQUE
+dipartimento - VARCHAR (100) - NOTNULL - UNIQUE
 sede - VARCHAR(150) - NOTNULL
 corsi_di_laurea - TEXT - NOTNULL
+telefono - TINYINT - NOTNULL
+email - VARCHAR(200) - NOTNULL - UNIQUE
 
 CORSI DI LAUREA 
 
-id - TINYINT - PRIMARY_KEY - NOTNULL - AUTO_INCREMENT - UNIQUE
-nome_corso_di_laurea - VARCHAR (100) - NOTNULL - UNIQUE
-numero_studenti_iscritti - INT - NOTNULL 
+id_corso_di_laurea - TINYINT - PRIMARY_KEY - NOTNULL - AUTO_INCREMENT - UNIQUE
+id_dipartimento - SMALL - NOTNULL
+corso_di_laurea - VARCHAR (150) - NOTNULL - UNIQUE
+numero_studenti - INT - NOTNULL 
 corsi_previsti - SMALL - NOTNULL
 numero_docenti - TINYINT - NULL
 
 CORSO 
 
-id - TINYINT - PRIMARY_KEY - NOTNULL - AUTO_INCREMENT - UNIQUE
+id_corso - TINYINT - PRIMARY_KEY - NOTNULL - AUTO_INCREMENT - UNIQUE
+id_corso_di_laurea - TINYINT - NOTNULL
 nome_corso - VARCHAR (100) - NOTNULL - UNIQUE
 docenti_del_corso - TEXT - NOTNULL
 data_inizio_corso - DATE - NOTNULL
 data_fine_corso - DATE - NOTNULL
 numero_appelli_d'Esame - TINYINT - NULL
 
+STUDENTI 
 
+id_studenti - INT - PRIMARY_KEY - AUTO_INCREMENT - UNIQUE
+id_corso_di_laurea - TINYINT - NOTNULL
+nome_cogn_studente - VARCHAR(255) - NOTNULL - UNIQUE
+anno_d'iscrizione - YEAR - NOTNULL
+esami_sostenuti - TINYINT - NOTNULL
+esami_mancanti - TINYINT - NOTNULL
+cfu_maturati - SMALL - NOTNULL
 
+APPELLI 
 
+id_appello - MEDIUMINT - PRIMARY_KEY - AUTO_INCREMENT - UNIQUE
+id_corso - TINYINT - NOTNULL
+data - DATETIME - NOTNULL
+sede - VARCHAR(255) - NOTNULL
 
