@@ -1,0 +1,45 @@
+Modellizzare la struttura di un database per memorizzare tutti i dati riguardanti una università:
+- sono presenti diversi Dipartimenti (es.: Lettere e Filosofia, Matematica, Ingegneria ecc.);
+- ogni Dipartimento offre più Corsi di Laurea (es.: Civiltà e Letterature Classiche, Informatica, Ingegneria Elettronica ecc..)
+- ogni Corso di Laurea prevede diversi Corsi (es.: Letteratura Latina, Sistemi Operativi 1, Analisi Matematica 2 ecc.);
+- ogni Corso può essere tenuto da diversi Insegnanti;
+- ogni Corso prevede più appelli d'Esame;
+- ogni Studente è iscritto ad un solo Corso di Laurea;
+- ogni Studente può iscriversi a più appelli di Esame;
+- per ogni appello d'Esame a cui lo Studente ha partecipato, è necessario memorizzare il voto ottenuto, anche se non sufficiente.
+
+UNIVERSITÀ
+
+id - SMALL - PRIMARY_KEY - NOTNULL - AUTO_INCREMENT - UNIQUE
+dipartimento - VARCHAR(200) - NOTNULL - UNIQUE
+anno_di_fondazione - YEAR - NOTNULL
+numero_corsi_di_Laurea - TINYINT - NULL
+
+DIPARTIMENTI 
+
+id - TINYINT - PRIMARY_KEY - NOTNULL - AUTO_INCREMENT - UNIQUE
+nome_dipartimento - VARCHAR (100) - NOTNULL - UNIQUE
+sede - VARCHAR(150) - NOTNULL
+corsi_di_laurea - TEXT - NOTNULL
+
+CORSI DI LAUREA 
+
+id - TINYINT - PRIMARY_KEY - NOTNULL - AUTO_INCREMENT - UNIQUE
+nome_corso_di_laurea - VARCHAR (100) - NOTNULL - UNIQUE
+numero_studenti_iscritti - INT - NOTNULL 
+corsi_previsti - SMALL - NOTNULL
+numero_docenti - TINYINT - 
+
+CORSO 
+
+id - TINYINT - PRIMARY_KEY - NOTNULL - AUTO_INCREMENT - UNIQUE
+nome_corso - VARCHAR (100) - NOTNULL - UNIQUE
+docenti_del_corso - TEXT - NOTNULL
+data_inizio_corso - DATE - NOTNULL
+data_fine_corso - DATE - NOTNULL
+numero_appelli_d'Esame - TINYINT
+
+
+
+
+
