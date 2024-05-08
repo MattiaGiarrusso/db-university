@@ -28,7 +28,7 @@ id - TINYINT - PRIMARY_KEY - NOTNULL - AUTO_INCREMENT - UNIQUE
 nome_corso_di_laurea - VARCHAR (100) - NOTNULL - UNIQUE
 numero_studenti_iscritti - INT - NOTNULL 
 corsi_previsti - SMALL - NOTNULL
-numero_docenti - TINYINT - 
+numero_docenti - TINYINT - NULL
 
 CORSO 
 
@@ -37,7 +37,7 @@ nome_corso - VARCHAR (100) - NOTNULL - UNIQUE
 docenti_del_corso - TEXT - NOTNULL
 data_inizio_corso - DATE - NOTNULL
 data_fine_corso - DATE - NOTNULL
-numero_appelli_d'Esame - TINYINT
+numero_appelli_d'Esame - TINYINT - NULL
 
 
 
